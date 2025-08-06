@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cognizant BSC training portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="layout-wrapper">
+        <!-- Top Banner - Full Width -->
+        <div class="header-banner">
+            <div class="banner-content">
+                <div class="banner-text">
+                    <h1>🚀Accelerate your Success From Learning to Leading🏅</h1>
+                    <p>Unleash the power of seamless training, intelligent applications, and dynamic project management - all in one revolutionary platform!</p>
+                </div>
+                <div class="banner-metrics">
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-number">150+</span>
+                            <span class="metric-label">Users</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-number">25</span>
+                            <span class="metric-label">Courses</span>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-info">
+                            <span class="metric-number">4</span>
+                            <span class="metric-label">Applications</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-decoration">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+        </div>
+        
+        <!-- Navigation Bar - Full Width -->
+        <div class="navbar">
+        <a onclick="showSection('greeting')" id="nav-home" class="active">
+            Home
+        </a>
+        <a onclick="showSection('features')" id="nav-features">
+            Solutions
+        </a>
+        
+        <a onclick="showSection('contact')" id="nav-contact">
+            Contact
+        </a>
+        <a onclick="showSection('about')" id="nav-about">
+            About
+        </a>
+        <div class="dropdown">
+            <a onclick="toggleDropdown()" id="nav-logout">
+                Account ▼
+            </a>
+            <div class="dropdown-content" id="dropdownContent">
+                <a onclick="showSection('profile')">Profile</a>
+                <a onclick="showSection('logout')">Logout</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Content Wrapper for Sidebar and Main Content -->
+    <div class="content-wrapper">
+        <div class="sidebar">
+            <a onclick="showSection('dashboard')" id="side-dashboard">
+                Dashboard
+                <span class="side-desc">Your activity & stats</span>
+            </a>
+            <a onclick="showSection('training')" id="side-training">
+            Training
+            <span class="side-desc">Courses & learning</span>
+        </a>
+        <a onclick="showSection('application-access')" id="side-application-access">
+            Application Access
+            <span class="side-desc">App shortcuts</span>
+        </a>
+        <a onclick="showSection('profile')" id="side-profile">
+            Profile
+            <span class="side-desc">Manage your info</span>
+        </a>
+        <a onclick="showSection('settings')" id="side-settings">
+            Settings
+            <span class="side-desc">Customize experience</span>
+        </a>
+        <a onclick="showSection('help')" id="side-help">
+            Help
+            <span class="side-desc">FAQs & support</span>
+        </a>
+        </div>
+        
+        <div class="main-container">
+            <!-- Greeting Section -->
+        <div id="greeting-section" class="section-content">
+            <div id="welcome-tab">
+                <h1>Hi Agent 👋</h1>
+                <div class="info-box">
+                    <h2>Welcome to Your Dashboard</h2>
+                    <p>Here's what you can do today:</p>
+                    <ul style="text-align:left;">
+                        <li><strong>Training:</strong> Continue your automation and testing courses</li>
+                        <li><strong>Applications:</strong> Access Jira, SQL DB, Outlook, and Teams</li>
+                        <li><strong>Dashboard:</strong> View your progress and stats</li>
+                        <li><strong>Profile:</strong> Manage your account information</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h3>Quick Actions</h3>
+                    <button onclick="showSection('training')" style="margin:8px;">Go to Training</button>
+                    <button onclick="showSection('application-access')" style="margin:8px;">Access Apps</button>
+                    <button onclick="showSection('dashboard')" style="margin:8px;">View Dashboard</button>
+                </div>
+                <div class="info-box">
+                    <h3>Today's Summary</h3>
+                    <p>📅 <strong>Date:</strong> August 5, 2025</p>
+                    <p>✅ <strong>Training Progress:</strong> 3 modules completed this week</p>
+                    <p>🎯 <strong>Next Goal:</strong> Complete Unit Testing course</p>
+                </div>
+            </div>
+        </div>
+        <!-- Profile Section -->
+        <div id="profile-section" class="hidden section-content">
+            <h1>Profile</h1>
+            <div class="info-box">
+                <ul style="text-align:left; font-size:1.1rem;">
+                    <li><strong>Username:</strong> johndoe</li>
+                    <li><strong>Password:</strong> ********</li>
+                    <li><strong>Email ID:</strong> johndoe@example.com</li>
+                    <li><strong>Phone Number:</strong> +1-234-567-8901</li>
+                    <li><strong>Home Manager/POC:</strong> Jane Smith</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Logout Section -->
+        <div id="logout-section" class="hidden section-content">
+            <h1>Logout</h1>
+            <div class="info-box">
+                <p>Are you sure you want to logout?</p>
+                <button onclick="confirmLogout()" style="margin:10px;">Yes, Logout</button>
+                <button onclick="cancelLogout()" style="margin:10px; background:#6c757d;">Cancel</button>
+                <div id="logoutMessage" style="margin-top:20px; color:#dc3545; font-weight:bold;"></div>
+            </div>
+        </div>
+        <!-- Features Section -->
+        <div id="features-section" class="hidden section-content">
+            <h1>Solutions</h1>
+            <div class="info-box">
+                <h3 style="color: #7e57c2; margin-bottom: 20px;">Comprehensive Business Solutions</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                    <div class="solution-card">
+                        <h4>🎓 Training & Development</h4>
+                        <ul style="text-align:left;">
+                            <li>Interactive learning modules and assessments</li>
+                            <li>Skills tracking and certification management</li>
+                            <li>Personalized learning paths and progress analytics</li>
+                            <li>Virtual classroom and collaboration tools</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h4>💼 Application Management</h4>
+                        <ul style="text-align:left;">
+                            <li>Centralized application portfolio dashboard</li>
+                            <li>Automated deployment and monitoring</li>
+                            <li>User access control and permissions</li>
+                            <li>Integration with enterprise systems</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="solution-card">
+                        <h4>📊 Project Management</h4>
+                        <ul style="text-align:left;">
+                            <li>Agile project planning and task management</li>
+                            <li>Resource allocation and timeline tracking</li>
+                            <li>Real-time collaboration and communication</li>
+                            <li>Advanced reporting and analytics dashboard</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="stats-overview" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 12px; color: white;">
+                    <h4 style="margin-bottom: 15px;">Platform Statistics</h4>
+                    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                        <div class="stat-item">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Active Projects</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2,500</span>
+                            <span class="stat-label">Users Trained</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">150+</span>
+                            <span class="stat-label">Applications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Section -->
+        <div id="about-section" class="hidden section-content">
+            <h1>About</h1>
+            <div class="info-box" style="text-align:left; font-size:1.1rem;">
+                <p><strong>Project Name:</strong> Blue Shield of California</p>
+                <p><strong>Description:</strong> We provide central location for new resources where they can access various training /leanining material and project specific tool access.</p>
+                <p><strong>About the Client:</strong> Blue Shield of California, an independent member of the Blue Shield Association, is a nonprofit health plan dedicated to providing Californians with access to high-quality health care at an affordable price. Ascendiun is Blue Shield of California's ultimate parent and the primary Blue Cross Blue Shield Association licensee.</p>
+            </div>
+        </div>
+        <!-- Contact Section -->
+        <div id="contact-section" class="hidden section-content">
+            <h1>Contact</h1>
+            <div class="info-box">
+                <p>Have questions or feedback?</p>
+                <ul style="text-align:left;">
+                    <li>Email: <a href="mailto:demo@example.com">demo@example.com</a></li>
+                    <li>Phone: +1-234-567-8901</li>
+                    <li>Support: <a href="#">Live Chat</a></li>
+                </ul>
+                <div class="toggle-switch">
+                    <span class="toggle-label">Show Support Hours</span>
+                    <label class="switch">
+                        <input type="checkbox" id="contactToggle" onchange="toggleContactInfo()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div id="contactExtraInfo" class="info-box hidden">
+                    <strong>Support Hours:</strong> Mon-Fri, 9am-6pm (EST)
+                </div>
+            </div>
+        </div>
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" class="hidden section-content">
+            <div class="tab-switcher">
+                <button class="tab-btn active" onclick="showDashboardTab('training-progress')" id="dashboard-tab-training-progress">Training Progress</button>
+                <button class="tab-btn" onclick="showDashboardTab('app-access-progress')" id="dashboard-tab-app-access-progress">Application Access Progress</button>
+            </div>
+            <div id="dashboard-training-progress-tab">
+                <h1>Training Progress</h1>
+                <div class="info-box">
+                    <canvas id="trainingPieChart" width="200" height="200"></canvas>
+                    <ul style="text-align:left;">
+                        <li style="color:#e53935;">Red: Not Started (30%)</li>
+                        <li style="color:#ffb300;">Amber: In Progress (40%)</li>
+                        <li style="color:#43a047;">Green: Completed (30%)</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="dashboard-app-access-progress-tab" class="hidden">
+                <h1>Application Access Progress</h1>
+                <div class="info-box">
+                    <canvas id="appAccessPieChart" width="200" height="200"></canvas>
+                    <ul style="text-align:left;">
+                        <li style="color:#e53935;">Red: Not Accessed (20%)</li>
+                        <li style="color:#ffb300;">Amber: In Use (50%)</li>
+                        <li style="color:#43a047;">Green: Fully Utilized (30%)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Training Section -->
+        <div id="training-section" class="hidden section-content">
+            <div class="tab-switcher">
+                <button class="tab-btn active" onclick="showTrainingTab('automation')" id="training-tab-automation">Automation</button>
+                <button class="tab-btn" onclick="showTrainingTab('configuration')" id="training-tab-configuration">Configuration</button>
+                <button class="tab-btn" onclick="showTrainingTab('unit-testing')" id="training-tab-unit-testing">Unit-Testing</button>
+            </div>
+            <div id="training-automation-tab">
+                <h1>Automation</h1>
+                <div class="info-box">
+                    <h2>Tools</h2>
+                    <ul style="text-align:left;">
+                        <li><a href="https://sharepoint.com/automation-tools" target="_blank">Automation Tools</a></li>
+                        <li><a href="https://sharepoint.com/automation-kt" target="_blank">Automation KT Video/Doc</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="training-configuration-tab" class="hidden">
+                <h1>Configuration</h1>
+                <div class="info-box">
+                    <h2>Tools</h2>
+                    <ul style="text-align:left;">
+                        <li><a href="https://sharepoint.com/config-tools" target="_blank">Config Tools</a></li>
+                        <li><a href="https://sharepoint.com/config-kt" target="_blank">Config KT Video/Doc</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="training-unit-testing-tab" class="hidden">
+                <h1>Unit-Testing</h1>
+                <div class="info-box">
+                    <h2>Tools</h2>
+                    <ul style="text-align:left;">
+                        <li><a href="https://sharepoint.com/cut-tools" target="_blank">CUT Tools</a></li>
+                        <li><a href="https://sharepoint.com/cut-kt" target="_blank">CUT KT Video/Doc</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Application Access Section -->
+        <div id="application-access-section" class="hidden section-content">
+            <h1>Application Access</h1>
+            <div class="info-box">
+                <ul style="text-align:left;">
+                    <li><a href="#" target="_blank">Jira</a></li>
+                    <li><a href="#" target="_blank">SQL DB</a></li>
+                    <li><a href="#" target="_blank">Outlook</a></li>
+                    <li><a href="#" target="_blank">Teams</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- Settings Section -->
+        <div id="settings-section" class="hidden section-content">
+            <h1>Settings</h1>
+            <div class="info-box">
+                <form id="settingsForm" style="text-align:left; font-size:1.1rem;">
+                    <div style="margin-bottom:16px;">
+                        <strong>Theme:</strong><br>
+                        <label><input type="radio" name="theme" value="light"> Light</label>
+                        <label style="margin-left:16px;"><input type="radio" name="theme" value="dark"> Dark</label>
+                    </div>
+                    <div style="margin-bottom:16px;">
+                        <strong>Background:</strong><br>
+                        <label><input type="radio" name="background" value="gradient"> Gradient</label>
+                        <label style="margin-left:16px;"><input type="radio" name="background" value="solid"> Solid</label>
+                    </div>
+                    <div style="margin-bottom:16px;">
+                        <strong>Language:</strong><br>
+                        <label><input type="radio" name="language" value="English"> English</label>
+                        <label style="margin-left:16px;"><input type="radio" name="language" value="Spanish"> Spanish</label>
+                    </div>
+                    <div style="margin-bottom:16px;">
+                        <strong>Font Style:</strong><br>
+                        <label><input type="radio" name="font" value="Inter"> Inter</label>
+                        <label style="margin-left:16px;"><input type="radio" name="font" value="Arial"> Arial</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Help Section -->
+        <div id="help-section" class="hidden section-content">
+            <h1>Help</h1>
+            <div class="info-box" style="text-align:left; font-size:1.1rem;">
+                <h2>Contact below for support</h2>
+                <div style="margin-bottom:10px;"><strong>Automation Team POC:</strong> automation.team@example.com</div>
+                <div style="margin-bottom:10px;"><strong>CQE Team POC:</strong> cqe.team@example.com</div>
+                <div style="margin-bottom:10px;"><strong>CUT Team POC:</strong> cut.team@example.com</div>
+                <div><strong>Release Engineering Team POC:</strong> release.eng@example.com</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
